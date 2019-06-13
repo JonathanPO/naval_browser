@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Batalha Naval</title>
+</head>
+<body>
+    <script>
+        var serverUrl = 'ws://localhost:8080';
+        var websocket = new WebSocket(serverUrl);
+
+        websocket.onopen = function () {
+            console.log("Conexão iniciada");
+        }
+
+        websocket.onmessage = function (message) {
+            console.log("Mensagem do servidor: ");
+            console.log(message);
+            document.write("<h1>");
+            document.write(message.data);
+            document.write("</h1>");
+        }
+    </script>
+</body>
+</html> 
